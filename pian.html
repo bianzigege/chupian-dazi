@@ -15,7 +15,7 @@
 <style>
 /* Same travel-journal look as 开口泰 / 安心游: cream paper, flag navy + red, temple gold, watercolour stickers. */
 :root {
-  --bg: #F6EDDC; --surface: #FFFBF3; --sunk: #EFE3CC; --ink: #1E2350; --muted: #776F62; --line: #E5D6BC;
+  --bg: #F6EDDC; --surface: #FFFBF3; --sunk: #EFE3CC; --ink: #1E2350; --muted: #6B6458; --line: #E5D6BC;
   --accent: #C5283D; --accent-soft: #FBE4DF; --primary: #1E2350; --on-primary: #FFF6E6;
   --gold: #D99A1E; --gold-soft: #F8E7C2; --leaf: #3D8A4F; --leaf-soft: #DCEBD6; --on-accent: #FFFFFF;
   --shadow: 0 1px 0 var(--line), 0 6px 14px -8px rgba(80,55,20,.28);
@@ -54,9 +54,10 @@ p { margin: 0; }
 .err { font-size: 14px; padding: 10px 12px; border-radius: 10px; background: var(--accent-soft); color: var(--accent); }
 .stk { display: block; pointer-events: none; user-select: none; filter: drop-shadow(0 3px 4px rgba(60,40,10,.2)); }
 
-.hero { position: relative; padding: 22px 18px 20px; border-radius: 20px; background: var(--primary); color: var(--on-primary); overflow: hidden; }
+/* The hero keeps its navy card in both themes: in dark mode --primary turns gold and would swallow the gold slogan. */
+.hero { position: relative; padding: 22px 18px 20px; border-radius: 20px; background: #1E2350; color: #FFF6E6; overflow: hidden; border: 1px solid var(--line); }
 .hero h1 { font-size: clamp(30px, 9vw, 42px); }
-.hero .slogan { font-family: var(--f-hand); font-size: 24px; color: var(--gold); transform: rotate(-3deg); display: inline-block; margin-top: 6px; }
+.hero .slogan { font-family: var(--f-hand); font-size: 24px; color: #F2B544; transform: rotate(-3deg); display: inline-block; margin-top: 6px; }
 .hero p { margin-top: 10px; max-width: 30em; opacity: .92; }
 .hero .stk { position: absolute; right: 6px; top: 8px; width: 84px; transform: rotate(10deg); }
 .steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
@@ -93,7 +94,7 @@ p { margin: 0; }
 .shop .go { margin-left: auto; color: var(--accent); white-space: nowrap; font-weight: 600; }
 
 /* viewfinder */
-.cam { position: relative; border-radius: 16px; overflow: hidden; background: #111; aspect-ratio: 3 / 4; max-height: 62vh; margin-inline: auto; width: 100%; }
+.cam { position: relative; border-radius: 16px; overflow: hidden; background: #111; aspect-ratio: 3 / 4; margin-inline: auto; width: min(100%, calc(62vh * 3 / 4)); }
 .cam video, .cam img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .cam .grid { position: absolute; inset: 0; pointer-events: none;
   background: linear-gradient(to right, transparent 33.2%, rgba(255,255,255,.45) 33.2% 33.5%, transparent 33.5% 66.5%, rgba(255,255,255,.45) 66.5% 66.8%, transparent 66.8%),
